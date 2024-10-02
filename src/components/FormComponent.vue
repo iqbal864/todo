@@ -12,6 +12,7 @@ const handleTambah = (e) => {
 
     if (inputData.value !== '') {
         props.listData.push(inputData.value);
+        localStorage.setItem('todo-list', JSON.stringify(props.listData));
         inputData.value = '';
     }
 

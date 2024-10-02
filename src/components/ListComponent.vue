@@ -7,6 +7,8 @@ const props = defineProps({
 
 const hapusItem = (index) => {
     props.listData.splice(index, 1);
+
+    localStorage.setItem('todo-list', JSON.stringify(props.listData));
 }
 
 </script>

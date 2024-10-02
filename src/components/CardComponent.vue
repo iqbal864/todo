@@ -1,9 +1,18 @@
 <script setup>
 import ListComponent from './ListComponent.vue';
 import FormComponent from './FormComponent.vue'
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const listData = ref([]);
+
+onMounted(() => {
+    const getData = localStorage.getItem('todo-list');
+    const parsedData = JSON.parse(getData);
+    if (Array.isArray(parsedData)) {
+        listData.value = parsedData;
+    }
+});
+
 
 </script>
 
